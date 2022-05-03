@@ -79,6 +79,50 @@ const App = () => {
             <Text style={styles.num}>12</Text>
           </View>
         </View>
+        <View style={styles.tupperWare}>
+          <View style={styles.cube}>
+            <Text style={styles.omegaText}>Omega 3</Text>
+            <Text style={styles.dateText}>Take with food.</Text>
+          </View>
+          <View>
+            <Pressable>
+              <Text style={styles.buttonA}>QYT : 03</Text>
+            </Pressable>
+          </View>
+        </View>
+        <View style={styles.tupperWare}>
+          <View style={styles.cube}>
+            <Text style={styles.omegaText}>Comlivit</Text>
+            <Text style={styles.dateText}>Take with full glass of water.</Text>
+          </View>
+          <View>
+            <Pressable>
+              <Text style={styles.buttonA}>QYT : 01</Text>
+            </Pressable>
+          </View>
+        </View>
+        <View style={styles.tupperWare}>
+          <View style={styles.cube}>
+            <Text style={styles.omegaText}>Vitamin C</Text>
+            <Text style={styles.dateText}>Take with food.</Text>
+          </View>
+          <View>
+            <Pressable>
+              <Text style={styles.buttonA}>QYT : 02</Text>
+            </Pressable>
+          </View>
+        </View>
+        <View style={styles.tupperWare}>
+          <View style={styles.cube}>
+            <Text style={styles.omegaText}>Vitamin D</Text>
+            <Text style={styles.dateText}>No special instructions</Text>
+          </View>
+          <View>
+            <Pressable>
+              <Text style={styles.buttonA}>QYT : 01</Text>
+            </Pressable>
+          </View>
+        </View>
         
         
       </View>
@@ -94,6 +138,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#E5E5E5',
+    position: 'relative',
   },
   text: {
     color: 'white',
@@ -103,8 +148,12 @@ const styles = StyleSheet.create({
   header: {
     alignItems: 'center',
     justifyContent: 'center',
+    position: 'absolute',
+    zIndex: 10,
+    width: "100%",
   },
   box: {
+    marginTop: 150,
   },
   boxText: {
     color: 'black',
@@ -129,7 +178,7 @@ const styles = StyleSheet.create({
   omegaText: {
     color: '#166478',
     fontSize: 18,
-    fontWeight: "500",
+    fontWeight: "700",
     paddingTop: 10,
   },
   dateText: {
@@ -168,7 +217,7 @@ const styles = StyleSheet.create({
   comlivitText: {
     color: '#166478',
     fontSize: 18,
-    fontWeight: "500",
+    fontWeight: "700",
     paddingTop: 10,
   },
   vitC: {
@@ -185,7 +234,7 @@ const styles = StyleSheet.create({
   vitCText: {
     color: '#166478',
     fontSize: 18,
-    fontWeight: "500",
+    fontWeight: "700",
     paddingTop: 10,
   },
   history: {
@@ -243,8 +292,37 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: 'hidden',
   },
+  tupperWare: {
+    borderStyle: 'solid',
+    padding: 15,
+    borderColor: '#B2B2B2',
+    borderWidth: 1,
+    marginLeft: 15, marginRight: 15,
+    marginTop: 5, marginBottom: 5,
+    borderRadius: 12,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  cube: {
+    marginLeft: 20,
+  },
+  buttonA: {
+    backgroundColor: '#6CC1BC',
+    color: 'white',
+    borderRadius: 12,
+    overflow: "hidden",
+    textAlign: 'center',
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 3,
+    paddingRight: 3,
+    fontWeight: "600",
+    marginBottom: 15,
+    marginTop: 20,
+    marginRight: 20,
+  },
   meds: {
-
+    marginBottom: 150,
   },
   medsText: {
     color: 'black',
@@ -254,12 +332,10 @@ const styles = StyleSheet.create({
   },
   footer: {
     width: "100%",
-    bottom: -95,
+    bottom: -80,
     position: 'absolute',
     backgroundColor: '#E5E5E5',
   }
-
-  
 });
 
 export default App;
