@@ -1,11 +1,11 @@
 import { black } from '@jest/types/node_modules/chalk';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, Image, View, Pressable } from 'react-native';
+import { StyleSheet, Text, Image, View, ScrollView, Pressable } from 'react-native';
 
 const App = () => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.header}>
         <Image source={require('./assets/Mask.png')} style={styles.headerImage} />
         <Text style={styles.text}>Adherence</Text>
@@ -49,14 +49,45 @@ const App = () => {
           
           </View>
         </View>
+        <View style={styles.calendar}>
+          <View style={styles.day}>
+            <Text style={styles.word}>MON</Text>
+            <Text style={styles.num}>6</Text>
+          </View>
+          <View style={styles.day}>
+            <Text style={styles.word}>TUE</Text>
+            <Text style={styles.num}>7</Text>
+          </View>
+          <View style={styles.day}>
+            <Text style={styles.word}>WED</Text>
+            <Text style={styles.num}>8</Text>
+          </View>
+          <View style={styles.day}>
+            <Text style={styles.word}>THU</Text>
+            <Text style={styles.num}>9</Text>
+          </View>
+          <View style={styles.friday}>
+            <Text style={styles.friWord}>FRI</Text>
+            <Text style={styles.friNum}>10</Text>
+          </View>
+          <View style={styles.day}>
+            <Text style={styles.word}>SAT</Text>
+            <Text style={styles.num}>11</Text>
+          </View>
+          <View style={styles.day}>
+            <Text style={styles.word}>SUN</Text>
+            <Text style={styles.num}>12</Text>
+          </View>
+        </View>
         
         
       </View>
       <View style={styles.meds}>
         <Text style={styles.medsText}>Medication Taken</Text>
       </View>
+      <Image source={require('./assets/GroupA.png')} style={styles.footer} />
       <StatusBar style="auto" />
-    </View>
+    </ScrollView>
   );
 }
 
@@ -172,6 +203,46 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "600",
   },
+  calendar: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    backgroundColor: 'white',
+    paddingTop: 20,
+    paddingBottom: 10,
+    padding: 10,
+    borderRadius: 12,
+    margin: 15,
+  },
+  day: {
+    alignItems: 'center',
+  },
+  friday: {
+    alignItems: 'center',
+  },
+  word: {
+    fontSize: 12,
+    color: '#AFAFBD',
+  },
+  friWord: {
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+  num: {
+    paddingTop: 10,
+    fontSize: 22,
+    padding: 10,
+    margin: 15,
+  },
+  friNum: {
+    paddingTop: 10,
+    margin: 15,
+    padding: 10,
+    fontSize: 22,
+    backgroundColor: '#166478',
+    color: 'white',
+    borderRadius: 10,
+    overflow: 'hidden',
+  },
   meds: {
 
   },
@@ -180,6 +251,12 @@ const styles = StyleSheet.create({
     margin: 25,
     fontSize: 20,
     fontWeight: "600",
+  },
+  footer: {
+    width: "100%",
+    bottom: -95,
+    position: 'absolute',
+    backgroundColor: '#E5E5E5',
   }
 
   
