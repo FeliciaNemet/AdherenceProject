@@ -1,7 +1,7 @@
 import { black } from '@jest/types/node_modules/chalk';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, Image, View, } from 'react-native';
+import { StyleSheet, Text, Image, View, Pressable } from 'react-native';
 
 const App = () => {
   return (
@@ -17,17 +17,26 @@ const App = () => {
             <Image source={require('./assets/Pills.png')} />
             <Text style={styles.omegaText}>Omega 3</Text>
             <Text style={styles.dateText}>15 Dec, 9:00 AM</Text>
+            <Pressable>
+              <Text style={styles.button}>QYT : 02</Text>
+            </Pressable>
 
           </View>
           <View style={styles.comlivit}>
             <Image source={require('./assets/Pill.png')} />
             <Text style={styles.comlivitText}>Comlivit</Text>
             <Text style={styles.dateText}>16 Dec, 9:00 AM</Text>
+            <Pressable>
+              <Text style={styles.button}>QYT : 02</Text>
+            </Pressable>
           </View>
           <View style={styles.vitC}>
             <Image source={require('./assets/VitC.png')} />
             <Text style={styles.vitCText}>Vitamin C</Text>
             <Text style={styles.dateText}>17 Dec, 9:00 AM</Text>
+            <Pressable>
+              <Text style={styles.button}>QYT : 02</Text>
+            </Pressable>
           </View>
         </View>
       </View>
@@ -75,9 +84,10 @@ const styles = StyleSheet.create({
   rowBox: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    padding: 20,
+    padding: 10,
   },
   omega: {
+    margin: 5,
     paddingTop: 15,
     paddingBottom: 15,
     paddingRight: 10,
@@ -93,11 +103,28 @@ const styles = StyleSheet.create({
   },
   dateText: {
     paddingTop: 10,
+    paddingBottom: 10,
     color: '#B2B2B2',
     fontSize: 12,
     fontWeight: "400",
   },
+  button: {
+    backgroundColor: '#6CC1BC',
+    color: 'white',
+    borderRadius: 12,
+    overflow: "hidden",
+    textAlign: 'center',
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 3,
+    paddingRight: 3,
+    fontWeight: "600",
+    marginBottom: 15,
+    marginTop: 10,
+    marginRight: 23,
+  },
   comlivit: {
+    margin: 5,
     paddingTop: 15,
     paddingBottom: 15,
     paddingRight: 10,
@@ -114,6 +141,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   vitC: {
+    margin: 5,
     paddingTop: 15,
     paddingBottom: 15,
     paddingLeft: 10,
