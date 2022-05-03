@@ -1,10 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, Image, View } from 'react-native';
 
-export default function App() {
+const App = () => {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Image source={require('./assets/Mask.png')} style={styles.headerImage} />
+      <Text style={styles.text}>Adherence</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -12,9 +14,15 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  text: {
+    color: 'white',
+    fontSize: 25,
+    top: -80,
+  }
 });
+
+export default App;
