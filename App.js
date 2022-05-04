@@ -2,12 +2,13 @@ import { black } from '@jest/types/node_modules/chalk';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { useState,} from 'react';
-import { StyleSheet, Text, Image, View, ScrollView, Pressable, TouchableOpacity, } from 'react-native';
-
-
-
+import { StyleSheet, Text, Image, View, ScrollView, Pressable, TouchableOpacity, Button } from 'react-native';
 
 const App = () => {
+  const [counter, setCounter] = useState(0);
+  const incrementHandler = () => {
+    setCounter(counter + 1);
+  };
 
   return (
     <View style={styles.container}>
@@ -19,41 +20,43 @@ const App = () => {
       <ScrollView>
         <View style={styles.box}>
           <Text style={styles.boxText}>Upcoming</Text>
-          <View style={styles.rowBox}>
-            <View style={styles.omega}>
-              <Image source={require('./assets/Pills.png')} />
-              <Text style={styles.omegaText}>Omega 3</Text>
+          <ScrollView horizontal={true}>
+            <View style={styles.rowBox}>
+              <View style={styles.omega}>
+                <Image source={require('./assets/Pills.png')} />
+                <Text style={styles.omegaText}>Omega 3</Text>
+                <View style={styles.clock}>
+                  <Image source={require('./assets/clock.png')} style={styles.clocker}/>
+                  <Text style={styles.dateText}>15 Dec, 9:00 AM</Text>
+                </View>
+                <Pressable>
+                  <Text style={styles.button}>QTY : 02</Text>
+                </Pressable>
+              </View>
+              <View style={styles.comlivit}>
+                <Image source={require('./assets/Pill.png')} />
+                <Text style={styles.comlivitText}>Comlivit</Text>
+                <View style={styles.clock}>
+                <Image source={require('./assets/clock.png')} style={styles.clocker}/>
+                <Text style={styles.dateText}>16 Dec, 9:00 AM</Text>
+                </View>
+                <Pressable>
+                  <Text style={styles.button}>QTY : 02</Text>
+                </Pressable>
+              </View>
+            <View style={styles.vitC}>
+              <Image source={require('./assets/VitC.png')} />
+              <Text style={styles.vitCText}>Vitamin C</Text>
               <View style={styles.clock}>
                 <Image source={require('./assets/clock.png')} style={styles.clocker}/>
-                <Text style={styles.dateText}>15 Dec, 9:00 AM</Text>
+                <Text style={styles.dateText}>17 Dec, 9:00 AM</Text>
               </View>
               <Pressable>
                 <Text style={styles.button}>QTY : 02</Text>
               </Pressable>
             </View>
-            <View style={styles.comlivit}>
-              <Image source={require('./assets/Pill.png')} />
-              <Text style={styles.comlivitText}>Comlivit</Text>
-              <View style={styles.clock}>
-                <Image source={require('./assets/clock.png')} style={styles.clocker}/>
-                <Text style={styles.dateText}>16 Dec, 9:00 AM</Text>
-              </View>
-              <Pressable>
-              <Text style={styles.button}>QTY : 02</Text>
-              </Pressable>
-            </View>
-          <View style={styles.vitC}>
-            <Image source={require('./assets/VitC.png')} />
-            <Text style={styles.vitCText}>Vitamin C</Text>
-            <View style={styles.clock}>
-              <Image source={require('./assets/clock.png')} style={styles.clocker}/>
-              <Text style={styles.dateText}>17 Dec, 9:00 AM</Text>
-            </View>
-            <Pressable>
-              <Text style={styles.button}>QTY : 02</Text>
-            </Pressable>
           </View>
-        </View>
+        </ScrollView>
       </View>
       <View style={styles.history}>
         <View style={StyleSheet.historySpread}>
@@ -99,11 +102,9 @@ const App = () => {
             <Text style={styles.omegaText}>Omega 3</Text>
             <Text style={styles.dateText}>Take with food.</Text>
           </View>
-          <View>
-            <Pressable>
-              <Text style={styles.buttonA}>QTY : 03</Text>
-            </Pressable>
-          </View>
+              <Pressable onPress={incrementHandler}>
+                <Text style={styles.buttonA}>QTY : 0{counter}</Text>
+              </Pressable>
         </View>
         <View style={styles.tupperWare}>
           <View style={styles.cube}>
@@ -138,8 +139,6 @@ const App = () => {
             </Pressable>
           </View>
         </View>
-        
-        
       </View>
       <View style={styles.meds}>
         <Text style={styles.medsText}>Medication Taken</Text>
@@ -149,9 +148,7 @@ const App = () => {
             <Text style={styles.dateText}>12 Dec, 9:00 AM</Text>
           </View>
           <View>
-            
               <Text style={styles.buttonA}>QTY : 03</Text>
-
           </View>
         </View>
         <View style={styles.tupperWare2}>
@@ -386,8 +383,14 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginRight: 20,
   },
+  buttons: {
+    flexDirection: 'row',
+  },
+  plusButton: {
+
+  },
   meds: {
-    marginBottom: 80,
+    marginBottom: 150,
   },
   medsText: {
     color: 'black',
