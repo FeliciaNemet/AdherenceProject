@@ -9,6 +9,7 @@ const App = () => {
       <View style={styles.header}>
         <Image source={require('./assets/Mask.png')} style={styles.headerImage} />
         <Text style={styles.text}>Adherence</Text>
+        <Image source={require('./assets/Groups.png')} style={styles.setting}/>
       </View>
       <View style={styles.box}>
         <Text style={styles.boxText}>Upcoming</Text>
@@ -16,7 +17,10 @@ const App = () => {
           <View style={styles.omega}>
             <Image source={require('./assets/Pills.png')} />
             <Text style={styles.omegaText}>Omega 3</Text>
-            <Text style={styles.dateText}>15 Dec, 9:00 AM</Text>
+            <View style={styles.clock}>
+              <Image source={require('./assets/clock.png')} style={styles.clocker}/>
+              <Text style={styles.dateText}>15 Dec, 9:00 AM</Text>
+            </View>
             <Pressable>
               <Text style={styles.button}>QYT : 02</Text>
             </Pressable>
@@ -25,7 +29,11 @@ const App = () => {
           <View style={styles.comlivit}>
             <Image source={require('./assets/Pill.png')} />
             <Text style={styles.comlivitText}>Comlivit</Text>
-            <Text style={styles.dateText}>16 Dec, 9:00 AM</Text>
+            <View style={styles.clock}>
+              <Image source={require('./assets/clock.png')} style={styles.clocker}/>
+              <Text style={styles.dateText}>16 Dec, 9:00 AM</Text>
+            </View>
+            
             <Pressable>
               <Text style={styles.button}>QYT : 02</Text>
             </Pressable>
@@ -33,7 +41,10 @@ const App = () => {
           <View style={styles.vitC}>
             <Image source={require('./assets/VitC.png')} />
             <Text style={styles.vitCText}>Vitamin C</Text>
-            <Text style={styles.dateText}>17 Dec, 9:00 AM</Text>
+            <View style={styles.clock}>
+              <Image source={require('./assets/clock.png')} style={styles.clocker}/>
+              <Text style={styles.dateText}>17 Dec, 9:00 AM</Text>
+            </View>
             <Pressable>
               <Text style={styles.button}>QYT : 02</Text>
             </Pressable>
@@ -128,6 +139,40 @@ const App = () => {
       </View>
       <View style={styles.meds}>
         <Text style={styles.medsText}>Medication Taken</Text>
+        <View style={styles.tupperWare2}>
+          <View style={styles.cube}>
+            <Text style={styles.omegaText}>Omega 3</Text>
+            <Text style={styles.dateText}>12 Dec, 9:00 AM</Text>
+          </View>
+          <View>
+            <Pressable>
+              <Text style={styles.buttonA}>QYT : 03</Text>
+            </Pressable>
+          </View>
+        </View>
+        <View style={styles.tupperWare2}>
+          <View style={styles.cube}>
+            <Text style={styles.omegaText}>Comlivit</Text>
+            <Text style={styles.dateText}>12 Dec, 9:00 AM</Text>
+          </View>
+          <View>
+            <Pressable>
+              <Text style={styles.buttonA}>QYT : 01</Text>
+            </Pressable>
+          </View>
+        </View>
+        <View style={styles.tupperWare2}>
+          <View style={styles.cube}>
+            <Text style={styles.omegaText}>Vitamin C</Text>
+            <Text style={styles.dateText}>12 Dec, 9:00 AM</Text>
+          </View>
+          <View>
+            <Pressable>
+              <Text style={styles.buttonA}>QYT : 02</Text>
+            </Pressable>
+          </View>
+        </View>
+        
       </View>
       <Image source={require('./assets/GroupA.png')} style={styles.footer} />
       <StatusBar style="auto" />
@@ -152,6 +197,12 @@ const styles = StyleSheet.create({
     zIndex: 10,
     width: "100%",
   },
+  setting: {
+    top: -115,
+    right: -140,
+    width: 20,
+    height: 20,
+  },
   box: {
     marginTop: 150,
   },
@@ -163,23 +214,30 @@ const styles = StyleSheet.create({
   },
   rowBox: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10,
+    justifyContent: 'space-between',
+    padding: 15,
   },
   omega: {
-    margin: 5,
+    margin: 10,
     paddingTop: 15,
     paddingBottom: 15,
     paddingRight: 10,
     paddingLeft: 10,
     backgroundColor: 'white',
-    borderRadius: 5,
+    borderRadius: 12,
   },
   omegaText: {
     color: '#166478',
     fontSize: 18,
     fontWeight: "700",
     paddingTop: 10,
+  },
+  clock: {
+    flexDirection: 'row',
+  },
+  clocker: {
+    marginRight: 1,
+    marginTop: 11,
   },
   dateText: {
     paddingTop: 10,
@@ -204,12 +262,12 @@ const styles = StyleSheet.create({
     marginRight: 23,
   },
   comlivit: {
-    margin: 5,
+    margin: 10,
     paddingTop: 15,
     paddingBottom: 15,
     paddingRight: 10,
     paddingLeft: 10,
-    borderRadius: 5,
+    borderRadius: 12,
     borderColor: '#B2B2B2',
     borderStyle: 'solid',
     borderWidth: 1,
@@ -221,12 +279,12 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   vitC: {
-    margin: 5,
+    margin: 10,
     paddingTop: 15,
     paddingBottom: 15,
     paddingLeft: 10,
     paddingRight: 10,
-    borderRadius: 5,
+    borderRadius: 12,
     borderColor: '#B2B2B2',
     borderStyle: 'solid',
     borderWidth: 1,
@@ -258,7 +316,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     paddingTop: 20,
     paddingBottom: 10,
-    padding: 10,
+    padding: 25,
     borderRadius: 12,
     margin: 15,
   },
@@ -322,13 +380,22 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   meds: {
-    marginBottom: 150,
+    marginBottom: 80,
   },
   medsText: {
     color: 'black',
     margin: 25,
     fontSize: 20,
     fontWeight: "600",
+  },
+  tupperWare2: {
+    padding: 15,
+    marginLeft: 15, marginRight: 15,
+    marginTop: 5, marginBottom: 5,
+    borderRadius: 12,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: 'white',
   },
   footer: {
     width: "100%",
