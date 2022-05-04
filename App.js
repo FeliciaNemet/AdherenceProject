@@ -321,7 +321,6 @@ const styles = StyleSheet.create({
 
   },
   historyButtonBox: {
-    
   },
   buttonB: {
     borderStyle: 'solid',
