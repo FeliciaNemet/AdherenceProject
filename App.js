@@ -4,6 +4,7 @@ import React from 'react';
 import { useState,} from 'react';
 import { StyleSheet, Text, Image, View, ScrollView, Pressable, TouchableOpacity, Button } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
+import { AntDesign } from '@expo/vector-icons';
 
 const App = () => {
   const [week, setWeek] = useState('Unknown');
@@ -66,7 +67,7 @@ const App = () => {
             <Text style={styles.historyText}>History</Text>
           </View>
           <View styles={styles.historyButtonBox}>
-            {/* I have chosen to make a text over the picker for styling reasons. As picker is deprecated, and the dropdown menu, just needed a placeholder. */}
+            {/* I have chosen to make a text instead of the picker for styling reasons. As picker is deprecated, and the dropdown menu, just needed a placeholder, no dropdown functionality. ***Picker is not easily styled. */}
             {/* <RNPickerSelect
                 onValueChange={(value) => console.log(value)}
                 placeholder={{}}
@@ -74,7 +75,7 @@ const App = () => {
                   { label: "Last Week", value: "Last Week" },
                 ]}
             /> */}
-            <Text style={styles.buttonB}>Last week</Text>
+            <Text style={styles.buttonB}>Last week <AntDesign name="caretdown" size={13} color="#166478" /></Text>
           </View>
         </View>
         <View style={styles.calendar}>
