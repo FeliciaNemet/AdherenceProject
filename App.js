@@ -1,43 +1,47 @@
 import { black } from '@jest/types/node_modules/chalk';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, Image, View, ScrollView, Pressable } from 'react-native';
+import { useState,} from 'react';
+import { StyleSheet, Text, Image, View, ScrollView, Pressable, TouchableOpacity, } from 'react-native';
+
+
+
 
 const App = () => {
+
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.header}>
         <Image source={require('./assets/Mask.png')} style={styles.headerImage} />
         <Text style={styles.text}>Adherence</Text>
         <Image source={require('./assets/Groups.png')} style={styles.setting}/>
       </View>
-      <View style={styles.box}>
-        <Text style={styles.boxText}>Upcoming</Text>
-        <View style={styles.rowBox}>
-          <View style={styles.omega}>
-            <Image source={require('./assets/Pills.png')} />
-            <Text style={styles.omegaText}>Omega 3</Text>
-            <View style={styles.clock}>
-              <Image source={require('./assets/clock.png')} style={styles.clocker}/>
-              <Text style={styles.dateText}>15 Dec, 9:00 AM</Text>
+      <ScrollView>
+        <View style={styles.box}>
+          <Text style={styles.boxText}>Upcoming</Text>
+          <View style={styles.rowBox}>
+            <View style={styles.omega}>
+              <Image source={require('./assets/Pills.png')} />
+              <Text style={styles.omegaText}>Omega 3</Text>
+              <View style={styles.clock}>
+                <Image source={require('./assets/clock.png')} style={styles.clocker}/>
+                <Text style={styles.dateText}>15 Dec, 9:00 AM</Text>
+              </View>
+              <Pressable>
+                <Text style={styles.button}>QTY : 02</Text>
+              </Pressable>
             </View>
-            <Pressable>
-              <Text style={styles.button}>QYT : 02</Text>
-            </Pressable>
-
-          </View>
-          <View style={styles.comlivit}>
-            <Image source={require('./assets/Pill.png')} />
-            <Text style={styles.comlivitText}>Comlivit</Text>
-            <View style={styles.clock}>
-              <Image source={require('./assets/clock.png')} style={styles.clocker}/>
-              <Text style={styles.dateText}>16 Dec, 9:00 AM</Text>
+            <View style={styles.comlivit}>
+              <Image source={require('./assets/Pill.png')} />
+              <Text style={styles.comlivitText}>Comlivit</Text>
+              <View style={styles.clock}>
+                <Image source={require('./assets/clock.png')} style={styles.clocker}/>
+                <Text style={styles.dateText}>16 Dec, 9:00 AM</Text>
+              </View>
+              <Pressable>
+              <Text style={styles.button}>QTY : 02</Text>
+              </Pressable>
             </View>
-            
-            <Pressable>
-              <Text style={styles.button}>QYT : 02</Text>
-            </Pressable>
-          </View>
           <View style={styles.vitC}>
             <Image source={require('./assets/VitC.png')} />
             <Text style={styles.vitCText}>Vitamin C</Text>
@@ -46,7 +50,7 @@ const App = () => {
               <Text style={styles.dateText}>17 Dec, 9:00 AM</Text>
             </View>
             <Pressable>
-              <Text style={styles.button}>QYT : 02</Text>
+              <Text style={styles.button}>QTY : 02</Text>
             </Pressable>
           </View>
         </View>
@@ -57,7 +61,7 @@ const App = () => {
             <Text style={styles.historyText}>History</Text>
           </View>
           <View styles={styles.historyButtonBox}>
-          
+            
           </View>
         </View>
         <View style={styles.calendar}>
@@ -97,7 +101,7 @@ const App = () => {
           </View>
           <View>
             <Pressable>
-              <Text style={styles.buttonA}>QYT : 03</Text>
+              <Text style={styles.buttonA}>QTY : 03</Text>
             </Pressable>
           </View>
         </View>
@@ -108,7 +112,7 @@ const App = () => {
           </View>
           <View>
             <Pressable>
-              <Text style={styles.buttonA}>QYT : 01</Text>
+              <Text style={styles.buttonA}>QTY : 01</Text>
             </Pressable>
           </View>
         </View>
@@ -118,9 +122,9 @@ const App = () => {
             <Text style={styles.dateText}>Take with food.</Text>
           </View>
           <View>
-            <Pressable>
-              <Text style={styles.buttonA}>QYT : 02</Text>
-            </Pressable>
+            <TouchableOpacity>
+              <Text style={styles.buttonA}>QTY : 02</Text>
+            </TouchableOpacity>
           </View>
         </View>
         <View style={styles.tupperWare}>
@@ -130,7 +134,7 @@ const App = () => {
           </View>
           <View>
             <Pressable>
-              <Text style={styles.buttonA}>QYT : 01</Text>
+              <Text style={styles.buttonA}>QTY : 03</Text>
             </Pressable>
           </View>
         </View>
@@ -145,9 +149,9 @@ const App = () => {
             <Text style={styles.dateText}>12 Dec, 9:00 AM</Text>
           </View>
           <View>
-            <Pressable>
-              <Text style={styles.buttonA}>QYT : 03</Text>
-            </Pressable>
+            
+              <Text style={styles.buttonA}>QTY : 03</Text>
+
           </View>
         </View>
         <View style={styles.tupperWare2}>
@@ -157,7 +161,7 @@ const App = () => {
           </View>
           <View>
             <Pressable>
-              <Text style={styles.buttonA}>QYT : 01</Text>
+              <Text style={styles.buttonA}>QTY : 01</Text>
             </Pressable>
           </View>
         </View>
@@ -168,15 +172,18 @@ const App = () => {
           </View>
           <View>
             <Pressable>
-              <Text style={styles.buttonA}>QYT : 02</Text>
+              <Text style={styles.buttonA}>QTY : 02</Text>
             </Pressable>
           </View>
         </View>
         
       </View>
-      <Image source={require('./assets/GroupA.png')} style={styles.footer} />
+      </ScrollView>
+      <View style={styles.footer}>
+        <Image source={require('./assets/GroupA.png')}  />
+      </View >
       <StatusBar style="auto" />
-    </ScrollView>
+    </View>
   );
 }
 
@@ -399,9 +406,10 @@ const styles = StyleSheet.create({
   },
   footer: {
     width: "100%",
-    bottom: -80,
+    bottom: 0,
     position: 'absolute',
     backgroundColor: '#E5E5E5',
+    alignItems: 'center',
   }
 });
 
