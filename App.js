@@ -3,8 +3,10 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { useState,} from 'react';
 import { StyleSheet, Text, Image, View, ScrollView, Pressable, TouchableOpacity, Button } from 'react-native';
+import RNPickerSelect from 'react-native-picker-select';
 
 const App = () => {
+  const [week, setWeek] = useState('Unknown');
   const [counter, setCounter] = useState(0);
   const incrementHandler = () => {
     setCounter(counter + 1);
@@ -59,12 +61,20 @@ const App = () => {
         </ScrollView>
       </View>
       <View style={styles.history}>
-        <View style={StyleSheet.historySpread}>
+        <View style={styles.historySpread}>
           <View style={styles.historyTextBox}>
             <Text style={styles.historyText}>History</Text>
           </View>
           <View styles={styles.historyButtonBox}>
-            
+            {/* I have chosen to make a text over the picker for styling reasons. As picker is deprecated, and the dropdown menu, just needed a placeholder. */}
+            {/* <RNPickerSelect
+                onValueChange={(value) => console.log(value)}
+                placeholder={{}}
+                items={[
+                  { label: "Last Week", value: "Last Week" },
+                ]}
+            /> */}
+            <Text style={styles.buttonB}>Last week</Text>
           </View>
         </View>
         <View style={styles.calendar}>
@@ -173,16 +183,16 @@ const App = () => {
             </Pressable>
           </View>
         </View>
-        
       </View>
       </ScrollView>
       <View style={styles.footer}>
         <Image source={require('./assets/GroupA.png')}  />
-      </View >
+      </View>
       <StatusBar style="auto" />
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -303,10 +313,26 @@ const styles = StyleSheet.create({
 
   },
   historySpread: {
-
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   historyTextBox: {
 
+  },
+  historyButtonBox: {
+    
+  },
+  buttonB: {
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: '#166478',
+    color: '#166478',
+    margin: 25,
+    borderRadius: 12,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    fontSize: 16,
+  
   },
   historyText: {
     color: 'black',
